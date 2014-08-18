@@ -15,6 +15,7 @@ Depends on jQuery do not forget to load the jQuery library.
 
 Usage:
 
+<code>
 <script>
     angular.module('exampleApp',
             [
@@ -38,3 +39,4 @@ Usage:
     <ng-autocomplete ac-items="items" ac-term="'partNum'" ac-keyup="updateObjectItems" placeholder="Part Number..." ng-model="partToSelectObject"></ng-autocomplete>
     Selected Item: {{partToSelectObject}}
 </div>
+</code>
