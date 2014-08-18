@@ -9,7 +9,7 @@ app.directive('ngAutocomplete', function ($http, $templateCache) {
             ngModel: '=ngModel',
             placeholder: '@placeholder'
         },
-	templateUrl: 'angular-autocomplete.html',
+	templateUrl: scriptPath() + 'template/angular-autocomplete.html',
     link: function (scope, $element, $attrs) {
             scope.acShow = false;
             scope.index = 0;
@@ -76,3 +76,10 @@ app.directive('ngAutocomplete', function ($http, $templateCache) {
         }
     }
 });
+
+var scriptPath = function () {
+    var scripts= document.getElementsByTagName('script');
+    var path= scripts[scripts.length-1].src.split('?')[0];      // remove any ?query
+    var mydir= path.split('/').slice(0, -1).join('/')+'/';  // remove last filename part of path
+    return mydir;
+};
