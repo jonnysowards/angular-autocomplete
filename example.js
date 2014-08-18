@@ -1,7 +1,6 @@
 var exampleApp = angular.module('exampleApp',
     [
-	"ngTouch",
-	"angularAutocomplete"
+	    "angularAutocomplete"
     ]
 ).controller('exampleObjectController', function($scope) {
     $scope.items = [
@@ -10,8 +9,6 @@ var exampleApp = angular.module('exampleApp',
         {partNum: "Q5952A"},
     ];
 
-    console.log($scope.items[0]);
-
     $scope.updateObjectItems = function(typedString){
         console.log(typedString);
         $scope.partToSelectObject = typedString;
@@ -19,8 +16,6 @@ var exampleApp = angular.module('exampleApp',
 
     
     $scope.part = 0;
-    
-    $scope.test = "helloworld";
 }).controller('exampleStringController', function($scope) {
         $scope.stringItems = [
             "Q5950A",
@@ -36,6 +31,4 @@ var exampleApp = angular.module('exampleApp',
 
 
         $scope.part = 0;
-
-        $scope.test = "helloworld";
     });
