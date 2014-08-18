@@ -1,0 +1,91 @@
+<html ng-app="exampleApp">
+	<head>
+        <title>Angular Autocomplete</title>
+		<script src="//code.jquery.com/jquery-2.1.1.js" type="text/javascript"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js" type="text/javascript"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular-touch.min.js" type="text/javascript"></script>
+		<script src="angular-autocomplete.js" type="text/javascript"></script>
+		<script src="example.js" type="text/javascript"></script>
+	    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="angular-autocomplete.css" type="text/css"/>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<h1>Angular Autocomplete</h1>
+				<h2>Standalone autocomplete directive for angular.js. CSS Framework Agnostic</h2>
+				<p>
+					Angular Autocomplete was built with simplicity in mind assign ac-items="" attribute to a simple json
+                    array of strings or objects. If it is an array of objects specify which attribute in the object
+                    contains the autocomplete string you would like to match with ac-term="". If you are just using an
+                    array of strings do not add this attribute. Create a function to call on key up to update the item
+                    in your $scope you would like to update, along with having the ability to update any of the scope
+                    attributes you would like. Lastly add a placeholder for placeholding text before you start to use
+                    autocomplete.
+                </p>
+                <p>
+                    <h2>Demo</h2>
+                    <div ng-controller="exampleObjectController">
+                        <ng-autocomplete ac-items="items" ac-term="'partNum'" ac-keyup="updateObjectItems" placeholder="Part Number..." ng-model="partToSelectObject"></ng-autocomplete>
+                        Selected Item: {{partToSelectObject}}
+                    </div>
+                </p>
+				<p>
+					<h3>Autocomplete Json Array of Objects Example:</h3>
+					<textarea disabled='true' style="height:295px;"  class="form-control">
+<script>
+    angular.module('exampleApp',
+            [
+                "angularAutocomplete"
+            ]
+    ).controller('exampleObjectController', function($scope) {
+        $scope.items = [
+            {partNum: "Q5950A"},
+            {partNum: "Q5951A"},
+            {partNum: "Q5952A"},
+        ];
+
+        $scope.updateObjectItems = function(typedString){
+            console.log(typedString);
+            $scope.partToSelectObject = typedString;
+        }
+
+
+//        $scope.part = 0;
+    });
+</script>
+<ng-autocomplete ac-items="items" ac-term="'partNum'" ac-keyup="ObjectupdateItems" placeholder="Part Number..." ng-model="partToSelectString"></ng-autocomplete>
+                    </textarea>
+                </p>
+                <p>
+                <h3>Autocomplete Json Array of Strings Example:</h3>
+                <textarea disabled='true' style="height:295px;" class="form-control">
+<script>
+    angular.module('exampleApp',
+            [
+                "angularAutocomplete"
+            ]
+    ).controller('exampleStringController', function($scope) {
+        $scope.stringItems = [
+            "Q5950A",
+            "Q5951A",
+            "Q5952A"
+        ];
+
+
+        $scope.updateStringItems = function(typedObject){
+            console.log(typedObject);
+            $scope.partToSelectString = typedObject;
+        }
+
+
+//        $scope.part = 0;
+    });
+</script>
+<ng-autocomplete ac-items="items" ac-term="'partNum'" ac-keyup="updateStringItems" placeholder="Part Number..." ng-model="partToSelectString"></ng-autocomplete>
+                </textarea>
+                </p>		</p>
+			</div>
+		</div>
+	</body>
+</html>

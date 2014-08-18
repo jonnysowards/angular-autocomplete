@@ -1,0 +1,12 @@
+<div class="ng-autocomplete">
+    <input type="text" placeholder="{{placeholder}}" class="form-control autoCompleteFocus" ng-model="autocomplete" ng-keydown="checkForTab($event)" ng-keyup="updateAutoComplete($event)"/>
+    <div class="autoCompleteWrapper">
+        <ul class="autocompleteItems" ng-show="acShow">
+            <li ng-class="{true:'active', false:''}[$index==index]" ng-repeat="item in acItems | filter : autocomplete" ng-click="setIndex($index)">
+                <!--<stream-image location='""' otherwise="img/avatar.png" class="outline small avatar"></stream-image>-->
+                <span ng-if="acTerm" class="item">{{item[acTerm]}}</span>
+		<span ng-if="!acTerm" class="item">{{item}}</span>
+            </li>
+        </ul>
+    </div>
+</div>
