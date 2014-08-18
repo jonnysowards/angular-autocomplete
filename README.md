@@ -11,6 +11,9 @@ in your $scope you would like to update, along with having the ability to update
 attributes you would like. Lastly add a placeholder for placeholding text before you start to use
 autocomplete.
 
+View Demo:
+http://backwardgraphics.github.io/angular-autocomplete/
+
 Depends on jQuery do not forget to load the jQuery library.
 
 Usage:
