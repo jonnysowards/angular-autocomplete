@@ -31,7 +31,7 @@ Usage:
 
         $scope.updateObjectItems = function(typedString){
             console.log(typedString);
-            $scope.partToSelectObject = typedString;
+            //You can run a service here to update $scope.items with a query using typedString
         }
     });
 </script>
