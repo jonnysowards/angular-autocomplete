@@ -14,8 +14,6 @@ autocomplete.
 View Demo:
 http://backwardgraphics.github.io/angular-autocomplete/
 
-Depends on jQuery do not forget to load the jQuery library.
-
 Usage:
 
 ```
