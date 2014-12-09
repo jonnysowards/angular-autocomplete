@@ -29,7 +29,7 @@
                     <h2>Demo</h2>
                     <div ng-controller="exampleObjectController">
                         <ng-autocomplete ac-items="items" ac-term="'partNum'" ac-keyup="updateObjectItems" placeholder="Part Number..." ng-model="partToSelectObject"></ng-autocomplete>
-                        Selected Item: {{partToSelectObject}}
+                        Selected Item: {{partToSelectObject.partNum}}
                     </div>
                 </p>
 				<p>

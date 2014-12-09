@@ -70,7 +70,7 @@ app.directive('ngAutocomplete', function ($http, $templateCache) {
 
             scope.setAutocomplete = function(){
                 console.log(scope.items);
-                scope.autocomplete = scope.acItems[scope.index].name;
+                scope.autocomplete = scope.acItems[scope.index][scope.acTerm];
                 scope.ngModel = scope.acItems[scope.index];
                 scope.index = 0;
             }
