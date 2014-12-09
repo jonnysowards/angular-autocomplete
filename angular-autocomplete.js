@@ -9,8 +9,10 @@ app.directive('ngAutocomplete', function ($http, $templateCache) {
             ngModel: '=ngModel',
             placeholder: '@placeholder'
         },
-	templateUrl: 'angular-autocomplete.html',
-    link: function (scope, $element, $attrs) {
+        templateUrl: function(elem,attrs) {
+            return attrs.templateUrl || 'angular-autocomplete.html'
+        },
+        link: function (scope, $element, $attrs) {
             scope.acShow = false;
             scope.index = 0;
             scope.preSelect;
