@@ -11,7 +11,6 @@ var exampleApp = angular.module('exampleApp',
 
     $scope.updateObjectItems = function(typedString){
         console.log(typedString);
-        $scope.partToSelectObject = typedString;
     }
 
     
@@ -26,7 +25,6 @@ var exampleApp = angular.module('exampleApp',
 
         $scope.updateStringItems = function(typedObject){
             console.log(typedObject);
-            $scope.partToSelectString = typedObject;
         }
 
 
