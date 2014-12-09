@@ -13,13 +13,12 @@ app.directive('ngAutocomplete', function ($http, $templateCache) {
     link: function (scope, $element, $attrs) {
             scope.acShow = false;
             scope.index = 0;
-	        scope.preSelect;
+            scope.preSelect;
             scope.key = {left: 37, up: 38, right: 39, down: 40 , enter: 13, esc: 27, tab: 9};
             scope.updateAutoComplete = function (event) {
                 console.log(scope.index);
                 switch (event.keyCode) {
                     case scope.key.down:
-			//$scope.setAutocomplete();
                         if(scope.acItems.length > scope.index + 1){
                             scope.index ++;
                         }else{
@@ -35,14 +34,14 @@ app.directive('ngAutocomplete', function ($http, $templateCache) {
                         break;
                     case scope.key.enter:
                     case scope.key.right:
-			            scope.acShow = false;
+                        scope.acShow = false;
                         scope.setAutocomplete();
-			            console.log(scope.autocomplete);
+                        console.log(scope.autocomplete);
                         scope.acKeyup(scope.autocomplete);
-			break;
+                        break;
                     case scope.key.esc:
                     case scope.key.tab:
-			            scope.acShow = false;
+                        scope.acShow = false;
                         break;
                     default:
                         scope.acShow = true;
@@ -58,21 +57,21 @@ app.directive('ngAutocomplete', function ($http, $templateCache) {
                     scope.acKeyup(scope.autocomplete);
                 }
             }
-			
+
             scope.setIndex = function(index){
                 scope.index = index;
                 scope.setAutocomplete();
-		        scope.acShow = false;
+                scope.acShow = false;
                 scope.acKeyup(scope.autocomplete);
             }
 
 
             scope.setAutocomplete = function(){
-		        //console.log(angular.element('.autocompleteItems').find("li")[$scope.index].innerText);
                 console.log(scope.items);
-                scope.autocomplete = angular.element('.autocompleteItems').find("li")[scope.index].innerText.replace(/\s/g, "");
-	    	    scope.index = 0;
-	        }
+                scope.autocomplete = scope.acItems[scope.index].name;
+                scope.ngModel = scope.acItems[scope.index];
+                scope.index = 0;
+            }
         }
     }
 });
