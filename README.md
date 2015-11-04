@@ -41,7 +41,3 @@ Usage:
     Selected Item: {{partToSelectObject}}
 </div>
 ```
-
-Known Bug:
-
-Only one instance of this directive can be used at a time, as the scope is currently shared. Working on trying to isolate the socpe.
