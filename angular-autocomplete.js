@@ -1,6 +1,7 @@
 var app = angular.module('angularAutocomplete', []);
 app.directive('ngAutocomplete', function ($http, $templateCache) {
     return {
+        require: "ngModel",
         restrict: 'E',
         scope: {
             acItems: '=acItems',
@@ -12,7 +13,7 @@ app.directive('ngAutocomplete', function ($http, $templateCache) {
         templateUrl: function(elem,attrs) {
             return attrs.templateUrl || 'angular-autocomplete.html'
         },
-        link: function (scope, $element, $attrs) {
+        link: function (scope, $element, $attrs, ngModel) {
             scope.acShow = false;
             scope.index = 0;
             scope.preSelect;
@@ -36,13 +37,13 @@ app.directive('ngAutocomplete', function ($http, $templateCache) {
                         break;
                     case scope.key.enter:
                     case scope.key.right:
+                    case scope.key.tab:
                         scope.acShow = false;
                         scope.setAutocomplete();
                         console.log(scope.autocomplete);
                         scope.acKeyup(scope.autocomplete);
                         break;
                     case scope.key.esc:
-                    case scope.key.tab:
                         scope.acShow = false;
                         break;
                     default:
@@ -74,6 +75,11 @@ app.directive('ngAutocomplete', function ($http, $templateCache) {
                 scope.ngModel = scope.acItems[scope.index];
                 scope.index = 0;
             }
+
+            scope.$watch("ngModel", function() {
+                scope.ngModel = ngModel.$modelValue;
+                scope.autocomplete = scope.ngModel[scope.acTerm];
+            });
         }
     }
 });
