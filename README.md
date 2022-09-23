@@ -12,7 +12,7 @@ attributes you would like. Lastly add a placeholder for placeholding text before
 autocomplete.
 
 View Demo:
-http://backwardgraphics.github.io/angular-autocomplete/
+http://jonnysowards.github.io/angular-autocomplete/
 
 Usage:
 
